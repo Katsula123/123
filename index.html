@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APEX AUTO DAILY | 疾速汽機車日報</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Orbitron (科技頭條) + Noto Sans TC (現代中文) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 頂部導航列 -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-accent">APEX</span> AUTO DAILY
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜尋新車、法規或賽事...">
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- 今日焦點大圖區 (Hero Banner) -->
+    <section class="hero-section">
+      <div class="hero-card" onclick="openModal('hero')">
+        <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" alt="GR Supra" class="hero-img">
+        <div class="hero-overlay">
+          <span class="badge badge-red">全球新車</span>
+          <h1 class="hero-title">Toyota 新一代 GR Supra 概念圖曝光！搭載直六雙渦輪與手排傳動，馬力突破 450hp</h1>
+          <p class="hero-meta">發布時間：2026-10-15 | 編輯：SpeedMaster</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 分類過濾按鈕區 -->
+    <section class="filter-bar">
+      <button class="filter-btn active" data-category="all">全部新聞</button>
+      <button class="filter-btn" data-category="car">全球新車</button>
+      <button class="filter-btn" data-category="law">台灣法規</button>
+      <button class="filter-btn" data-category="moto">二輪重機</button>
+      <button class="filter-btn" data-category="event">車圈大事</button>
+    </section>
+
+    <!-- 新聞卡片網格 (Static Grid) -->
+    <section class="news-grid" id="newsGrid">
+
+      <!-- 卡片 1: 全球新車 -->
+      <article class="news-card" data-category="car" onclick="openModal('news-1')">
+        <div class="card-img-wrapper">
+          <span class="badge badge-red">全球新車</span>
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Porsche 911 GT3">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">保時捷 911 GT3 RS 紐柏林單圈再度刷刷新紀錄，空氣力學套件技術大解析</h3>
+          <p class="card-excerpt">全新主動式尾翼搭配底盤空力效應，使最新款 GT3 RS 在下壓力方面提升了 30%，再次展現賽道王者風範...</p>
+          <div class="card-footer">
+            <span>2026-10-14</span>
+            <span class="read-more">閱讀全文 &rarr;</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 卡片 2: 台灣法規 -->
+      <article class="news-card" data-category="law" onclick="openModal('news-2')">
+        <div class="card-img-wrapper">
+          <span class="badge badge-orange">台灣法規</span>
+          <img src="https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=800&q=80" alt="台灣道路">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">【2026 交通新制】全台區間測速與科技執法全面升級！違規變換車道無所遁形</h3>
+          <p class="card-excerpt">交通部宣布針對重點事故路段實施全新 AI 辨識系統，除了超速之外，未保持安全車距與未禮讓行人將成為重點取締項目...</p>
+          <div class="card-footer">
+            <span>2026-10-12</span>
+            <span class="read-more">閱讀全文 &rarr;</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 卡片 3: 二輪重機 -->
+      <article class="news-card" data-category="moto" onclick="openModal('news-3')">
+        <div class="card-img-wrapper">
+          <span class="badge badge-red">二輪重機</span>
+          <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80" alt="Yamaha YZF">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Yamaha YZF-R9 正式引進台灣！三缸電控跑車震撼發表，預售價首度公開</h3>
+          <p class="card-excerpt">承襲 CP3 引擎強悍扭力與全新電子懸吊系統，R9 填補了中量級純種跑車的市場空缺，預計明年第一季開始交車...</p>
+          <div class="card-footer">
+            <span>2026-10-10</span>
+            <span class="read-more">閱讀全文 &rarr;</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 卡片 4: 車圈大事 -->
+      <article class="news-card" data-category="event" onclick="openModal('news-4')">
+        <div class="card-img-wrapper">
+          <span class="badge badge-orange">車圈大事</span>
+          <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80" alt="F1 賽車">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">2026 F1 引擎新規正式上路！永續燃料與電能比重大大幅提升</h3>
+          <p class="card-excerpt">國際汽聯（FIA）公布最新賽事規則，所有車隊將採用 100% 永續生質燃料，並大幅提高 MGU-K 電能輸出佔比...</p>
+          <div class="card-footer">
+            <span>2026-10-08</span>
+            <span class="read-more">閱讀全文 &rarr;</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- 新聞詳細內容彈窗 (Modal) -->
+  <div class="modal-backdrop" id="newsModal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+      <div id="modalBody">
+        <!-- 動態塞入內容 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 頁尾 -->
+  <footer class="footer">
+    <p>&copy; 2026 APEX AUTO DAILY 疾速汽機車日報. Powered by GitHub Pages.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
